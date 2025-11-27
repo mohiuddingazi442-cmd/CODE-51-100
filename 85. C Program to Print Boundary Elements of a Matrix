@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    int rows, cols;
+
+    // Input matrix dimensions
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+
+    int matrix[rows][cols];
+
+    // Input matrix elements
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    // Print boundary elements
+    printf("Boundary elements of the matrix are:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            // Check if element is in the first row, last row, first column, or last column
+            if (i == 0 || i == rows - 1 || j == 0 || j == cols - 1) {
+                printf("%d ", matrix[i][j]);
+            } else {
+                printf("  "); // To maintain alignment
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
