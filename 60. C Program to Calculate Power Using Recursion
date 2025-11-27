@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+// Recursive function to calculate power
+double power(double base, int exponent) {
+    if (exponent == 0) // Base case: any number raised to 0 is 1
+        return 1;
+    else if (exponent > 0)
+        return base * power(base, exponent - 1); // Positive exponent
+    else // For negative exponent
+        return 1 / power(base, -exponent);
+}
+
+int main() {
+    double base;
+    int exponent;
+    
+    printf("Enter the base: ");
+    scanf("%lf", &base);
+    
+    printf("Enter the exponent: ");
+    scanf("%d", &exponent);
+    
+    double result = power(base, exponent);
+    printf("%.2lf raised to the power %d is %.2lf\n", base, exponent, result);
+    
+    return 0;
+}
