@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, j, element, count = 0;
+
+    // Input array size
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    // Input array elements
+    printf("Enter %d elements: ", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Input element to remove
+    printf("Enter the element to remove: ");
+    scanf("%d", &element);
+
+    // Remove all occurrences
+    for (i = 0; i < n; i++) {
+        if (arr[i] == element) {
+            for (j = i; j < n - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            n--;    // Reduce array size
+            i--;    // Check the new element at this index
+            count++;
+        }
+    }
+
+    // Display result
+    if (count == 0) {
+        printf("Element not found in the array.\n");
+    } else {
+        printf("Array after removing %d: ", element);
+        for (i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
