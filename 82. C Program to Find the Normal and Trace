@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n;
+    printf("Enter the size of the square matrix: ");
+    scanf("%d", &n);
+
+    double matrix[n][n];
+    double sumOfSquares = 0.0, trace = 0.0;
+
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%lf", &matrix[i][j]);
+            sumOfSquares += matrix[i][j] * matrix[i][j];  // For norm calculation
+            if (i == j) {
+                trace += matrix[i][j];  // Sum of diagonal elements
+            }
+        }
+    }
+
+    double norm = sqrt(sumOfSquares);  // Frobenius norm
+    printf("Trace of the matrix: %.2lf\n", trace);
+    printf("Frobenius Norm (Normal) of the matrix: %.2lf\n", norm);
+
+    return 0;
+}
