@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    int rows, cols;
+
+    // Input matrix dimensions
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+
+    int matrix[rows][cols];
+
+    // Input matrix elements
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    // Interchange first and last elements of each row
+    for (int i = 0; i < rows; i++) {
+        int temp = matrix[i][0];
+        matrix[i][0] = matrix[i][cols - 1];
+        matrix[i][cols - 1] = temp;
+    }
+
+    // Print the modified matrix
+    printf("Matrix after interchanging first and last elements of each row:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
