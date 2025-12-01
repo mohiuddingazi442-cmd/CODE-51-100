@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void reverseString(char str[], int index) {
+    // Base case
+    if (str[index] == '\0')
+        return;
+
+    // Recursive call
+    reverseString(str, index + 1);
+
+    // Print characters in reverse order
+    printf("%c", str[index]);
+}
+
+int main() {
+    char str[100];
+
+    printf("Enter a string: ");
+    gets(str);   // For exam purpose
+
+    printf("Reversed string: ");
+    reverseString(str, 0);
+
+    return 0;
+}
