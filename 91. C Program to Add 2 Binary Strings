@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char bin1[100], bin2[100], result[101];
+    int i, j, k, carry = 0, sum = 0;
+
+    printf("Enter first binary string: ");
+    gets(bin1);   // for exam purpose
+
+    printf("Enter second binary string: ");
+    gets(bin2);   // for exam purpose
+
+    i = strlen(bin1) - 1;
+    j = strlen(bin2) - 1;
+    k = 0;
+
+    while (i >= 0 || j >= 0 || carry) {
+        sum = carry;
+
+        if (i >= 0)
+            sum += bin1[i--] - '0';
+        if (j >= 0)
+            sum += bin2[j--] - '0';
+
+        result[k++] = (sum % 2) + '0';
+        carry = sum / 2;
+    }
+
+    result[k] = '\0';
+
+    // reverse result
+    for (i = 0, j = k - 1; i < j; i++, j--) {
+        char temp = result[i];
+        result[i] = result[j];
+        result[j] = temp;
+    }
+
+    printf("Sum of binary strings: %s", result);
+
+    return 0;
+}
